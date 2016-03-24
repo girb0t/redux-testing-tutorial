@@ -12,5 +12,9 @@ Things learned/practiced: **FILL IN**
   > npm install
   > npm start
 ```
+To run tests:
+```
+  > npm run test:watch
+```
 Visit `http://localhost:8080/`
 
