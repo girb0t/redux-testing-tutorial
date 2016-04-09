@@ -25,7 +25,7 @@ const $ = jquery(global.window);
 //##########
 // Build 'renderComponent' helper that should render a given react class
 //##########
-function renderComponent(ComponentClass, props, state) {
+function renderComponent(ComponentClass, props = {}, state={}) {
   const componentInstance = (
     <Provider store={createStore(reducers, state)}>
       <ComponentClass {...props} />
@@ -41,7 +41,14 @@ function renderComponent(ComponentClass, props, state) {
 // Build helper for simulating events
 //##########
 
-
+// To call simulate: $('div').simulate()
+$.fn.simulate = function(eventName, value) {
+  // `this` refers to the HTML element that was selected
+  if (value) {
+    this.val(value);
+  }
+  TestUtils.Simulate[eventName](this[0]);
+}
 
 //##########
 // Set up chai-jquery
