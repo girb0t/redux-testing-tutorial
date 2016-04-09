@@ -3,10 +3,12 @@ import jquery from 'jquery'; //can't use '$' b/c then it'll try to find actual D
 import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../src/reducers';
+import chaiJquery from 'chai-jquery';
+
 
 //##########
 // Set up testing env to run like a browser in the command line
@@ -53,5 +55,6 @@ $.fn.simulate = function(eventName, value) {
 //##########
 // Set up chai-jquery
 //##########
+chaiJquery(chai, chai.util, $);
 
 export { renderComponent, expect };
